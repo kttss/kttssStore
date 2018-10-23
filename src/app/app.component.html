@@ -1,0 +1,96 @@
+<!-- <app-layout-header></app-layout-header>
+
+<router-outlet></router-outlet>
+
+<app-layout-footer></app-layout-footer> -->
+<router-outlet></router-outlet>
+
+<div class="container" *ngIf='false'>
+    <div *ngIf='!logged' class="row">
+        <div class="col-md-1">
+            Login :
+        </div>
+        <div class="col-md-12"> 
+            <div class="input-group mb-3">
+                    <input  type="text" class="form-control" [(ngModel)]="user" name="login">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" (click)="next()" type="button">Next</button>
+                    </div>
+                  </div>
+        </div>
+    </div>
+  
+<div class="row"> 
+<div class="col-md-12"> 
+    <div  *ngFor="let item of messages"  class="centent">
+            <span class="position-position {{(user == item.user) ? 'sent' : 'received' }}"> 
+          
+                <!-- <span *ngIf="item.user!=user"> -->
+                        {{item.user!=user ? item.user :'Moi' }} 
+                <!-- </span> -->
+       <span class="message {{(user == item.user) ? 'sent' : 'received' }}" >
+            {{item.msg}} 
+                </span>
+            </span>
+    
+</div>
+<!-- <div class="centent"> 
+            <span class="message received">
+                    You were drunk. 
+              </span>
+     
+</div> -->
+
+<div  *ngIf='logged' class="centent"> 
+
+        <!-- <ul class="  list-group list-group-flush"> -->
+                <!-- <li class="list-group-item"><b>{{item.user}}</b> : </li> -->
+                <!-- <li  class="list-group-item"> -->
+                        <div  class=" p-2 input-group mb-3">
+                                <input  type="text" class="form-control" [(ngModel)]="message" name="login">
+                                <div class="input-group-append">
+                                  <button class="btn btn-primary" (click)="send()" type="button">Send</button>
+                                </div>
+                              </div>
+                <!-- </li>  -->
+      <!-- </ul> -->
+</div>
+ 
+</div>
+ 
+    </div> 
+
+
+
+    
+</div>
+
+
+
+
+<style>
+        .message{
+           background-color: white;
+           border-radius: 8px;
+           padding: 9px;
+           margin-bottom: 5px;
+           display: block;
+           width: fit-content;
+           background-color: white;/*rgba(221, 216, 234, 0.89)*/
+           
+        }
+       
+        .centent{
+            position: relative; 
+            height: 100%;
+        }
+        .sent{
+    right: 0px;
+    text-align: right;
+}
+.position-position{
+    position: absolute;
+}
+.received{left:0px}
+
+        </style>
